@@ -1,0 +1,11 @@
+<html>
+   <body>
+       <!-- Basic form to get input. Imagine its super fancy with modern design. -->
+        <form method="POST" action="{{ url_for('input') }}">
+            <p>Enter the IP address to locate.</p>
+            <input type="text" name="ip"/>
+            <input type="submit" name="action" value="submit"/>
+            <p id='output'></p>
+        </form>
+    </body>
+</html>
