@@ -8,6 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 # Copy files into the docker image.
 COPY . .
+ENV FLASK_APP ip_locator.py
 # Execute the flask file.
 WORKDIR /code
-CMD ['python', 'ip_locator.py']
+ENTRYPOINT ["python"]
+CMD ["-m", "flask", "run", "--host=0.0.0.0"]
+# CMD ["python", "ip_locator.py"]
