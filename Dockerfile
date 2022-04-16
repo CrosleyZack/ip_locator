@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.7-alpine
 # Upgrade pip. Probably not necessary, but good practice.
 RUN python -m pip install --upgrade pip
 # Install the required libraries.
@@ -9,8 +9,8 @@ EXPOSE 5000
 # Copy files into the docker image.
 COPY . .
 ENV FLASK_APP ip_locator.py
+ENV FLASK_RUN_HOST=0.0.0.0
 # Execute the flask file.
 WORKDIR /code
-ENTRYPOINT ["python"]
-CMD ["-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run"]
 # CMD ["python", "ip_locator.py"]
